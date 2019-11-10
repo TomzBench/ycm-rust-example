@@ -12,8 +12,7 @@ impl Thing {
 
 fn completeme(thing: Arc<Mutex<Thing>>) -> bool {
     let guard = thing.lock().unwrap(); // Seems OK, but lots of noise in this completion (excessive results)
-    // Here, guard.n is valid code, but n is not part of completion set
-    match guard.n {
+    match guard.n { // <--- Here, Guard.n is valid code, but n is not part of completion set
         42 => true,
         _ => false,
     }
